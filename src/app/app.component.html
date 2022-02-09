@@ -1,16 +1,131 @@
-<p [ngStyle]="{'color':this.color, 'fontSize': this.font+'px', 'fontWeight':this.bold === false ? 'normal' : 'bold' ,
+<!-- <p [ngStyle]="{'color':this.color, 'fontSize': this.font+'px', 'fontWeight':this.bold === false ? 'normal' : 'bold' ,
 'fontStyle':this.italics === false ? 'normal' : 'italic'}
 ">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, illo itaque! Repellat quas eligendi, libero esse unde perferendis voluptates ducimus ipsum ut dolor! Assumenda porro laborum dolorem nemo fugit iusto?
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, illo itaque! Repellat quas eligendi, libero esse unde
+  perferendis voluptates ducimus ipsum ut dolor! Assumenda porro laborum dolorem nemo fugit iusto?
 </p>
 <br>
-<div id = "options">
-  
+<div id="options">
+
   <label for="color">Text Color</label>
-<input type="text" name="color" id="color" [(ngModel)] = "color"  placeholder="red, blue etc."> 
-<label for="font">Font Size</label>
-<input type="text" name="font" id="font" [(ngModel)] = "font" > 
-<input type="checkbox" name="font" id="font" [(ngModel)] = "bold" (click)="toggleBold()" > Bold
-<input type="checkbox" name="italics" id="italics" [(ngModel)] = "italics" (click)="toggleItalics()" > Italics
+  <input type="text" name="color" id="color" [(ngModel)]="color" placeholder="red, blue etc.">
+  <label for="font">Font Size</label>
+  <input type="text" name="font" id="font" [(ngModel)]="font">
+  <input type="checkbox" name="font" id="font" (change)="toggleBold()"> Bold
+  <input type="checkbox" name="italics" id="italics" (change)="toggleItalics()"> Italics
+</div> -->
+<!-- <button class="btn btn-primary" (click)="displayHello=!displayHello"> ifelse</button>
+<br>
+<p *ngIf="displayHello; else elseBlock">
+  Hellow
+</p>
+
+<br><br>
+
+<ng-template #elseBlock>
+  <span>Foo bar</span>
+</ng-template>
+
+
+<ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut">
+</ng-container>
+
+<ng-template #loggedIn>
+  <div>
+    Welcome back, friend.
+  </div>
+</ng-template>
+<ng-template #loggedOut>
+  <div>
+    Please friend, login.
+  </div>
+</ng-template>
+
+<div>
+  <h3>ngSwitch</h3>
+
+  <div [ngSwitch]="animal">
+
+    <p *ngSwitchCase="'tiger'">This animal is tiger</p>
+    <p *ngSwitchCase="'lion'">This animal is lionssss</p>
+    <p *ngSwitchCase="'whale'">This animal is whale</p>
+    <p *ngSwitchDefault>This animal is {{animal}}</p>
+
+    <input type="text" [(ngModel)]="animal">
+
+  </div>
 </div>
 
+<div>
+  <h3>List</h3>
+  <div>
+    <ul *ngFor=" let fnt of list;
+                  index as i;
+                  first as f; last as l;
+                  odd as o; even as e;
+    ">
+      <li>
+        index = {{i}}, first = {{f}}, last={{l}},
+        odd={{o}}, even={{e}}, furniture={{fnt}}
+      </li>
+
+    </ul>
+  </div>
+  <div>
+    <ul *ngFor=" let fnt of list;
+              
+                ">
+      <li>
+        {{fnt}}
+      </li>
+
+    </ul>
+  </div>
+</div> -->
+
+<!-- <div id="options">
+  <input type="checkbox" name="sausage" id="sausage" (change)="changeSelection('sausage')"> sausage
+  <input type="checkbox" name="peppers" id="peppers" (change)="changeSelection('peppers')"> peppers
+  <input type="checkbox" name="onions" id="onions" (change)="changeSelection('onions')"> onions
+  <input type="checkbox" name="mushrooms" id="mushrooms" (change)="changeSelection('mushrooms')"> mushrooms
+  <input type="checkbox" name="pineapple" id="pineapple" (change)="changeSelection('pineapple')"> pineapple
+  <input type="checkbox" name="bacon" id="bacon" (change)="changeSelection('bacon')"> bacon
+  <input type="checkbox" name="ham" id="ham" (change)="changeSelection('ham')"> ham
+  <input type="checkbox" name="spinach" id="spinach" (change)="changeSelection('spinach')"> spinach
+  <input type="checkbox" name="spinach" id="spinach" (change)="changeSelection('cheese')"> cheese
+  <input type="checkbox" name="spinach" id="spinach" (change)="changeSelection('sauce')"> sauce
+
+</div> -->
+
+<div>
+  <span *ngFor=" let topping of toppingsList;
+  ">
+    <input type="checkbox" name={{topping}} id={{topping}} (change)="changeSelection(topping)"> {{topping}}
+  </span>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<ng-container *ngIf="total <= 20; then first; else second">
+</ng-container>
+
+<ng-template #first>
+  <div>
+    <p>Total : {{total}}</p>
+  </div>
+</ng-template>
+<ng-template #second>
+  <div>
+    <p>Total : {{total}}</p>
+    <p>Would you like a discount of 10%?</p>
+    <p>or would you like a $3 off this order?</p>
+  </div>
+</ng-template>
+
+
+
+
+<br>
